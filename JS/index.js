@@ -1,4 +1,4 @@
-// На странице index.html
+// На странице index.htm
 const weatherContent = document.querySelector('.weather-content');
 const selectedCity = localStorage.getItem('selectedCity');
 const api = '4379e359a43e158fba51dfd6ab6c79f2';
