@@ -1,10 +1,10 @@
 // На странице index.html
 const weatherContent = document.querySelector('.weather-content');
 const selectedCity = localStorage.getItem('selectedCity');
-const api = 'b74cee90d3c64e3e929190415232010';
+const api = '4379e359a43e158fba51dfd6ab6c79f2';
   
 if (selectedCity) {
-    const url = `http://api.weatherapi.com/v1/current.json?key=${api}&q=${selectedCity}&aqi=no`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${api}`;
     console.log(selectedCity);
     fetch(url)
         .then((response) => {
@@ -19,11 +19,11 @@ weatherContent.classList.add('weather-content');
 
 const degrees = document.createElement('span');
 degrees.classList.add('degrees');
-degrees.textContent = `${data.current.temp_c}℃`;
+degrees.textContent = `${data.main.temp}℃`;
 
 const cityText = document.createElement('p');
 cityText.classList.add('city');
-cityText.textContent = `Погода в городе ${data.location.name}`;
+cityText.textContent = `Погода в городе ${data.name}`;
 
 const changeCityLink = document.createElement('a');
 changeCityLink.classList.add('change_city');
