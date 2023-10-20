@@ -1,41 +1,52 @@
+// navigator.geolocation.getCurrentPosition(function(position) {
+//     // Координаты пользователя доступны в объекте `position`
+//     let userLocation = {
+//         lat: position.coords.latitude,
+//         lng: position.coords.longitude
+//     };})
 
-    navigator.geolocation.getCurrentPosition(function(position) {
-        // Координаты пользователя доступны в объекте `position`
-        let userLocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-        };
 
-        const api = '792c80c8ee642d0e8438345141e93194';
-        const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${userLocation.lat}&lon=${userLocation.lng}&exclude=current&appid=${api}`;
-        console.log(userLocation);
 
-        fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json(); // Парсим JSON ответ, если он имеется
-            })
-        .then(data => {
-            // Обрабатываем полученные данные
-            console.log(data);
-            })
-        .catch(error => {
-            // Обрабатываем ошибку
-            console.error('There was a problem with the fetch operation:', error);
-        });   
-        }, function(error) {
-        // Обработка ошибки
-        switch (error.code) {
-            case error.PERMISSION_DENIED:
-                alert("Без местоположения вы не узнаете погоду");
-            break;
-            case error.POSITION_UNAVAILABLE:
-                alert("Информация о вашем местоположении недоступна");
-            break;
-        }
+    const weatherContent = document.querySelector('.weather-content');
+    const divFind = document.querySelector('.div-find');
+    const btnFind = document.querySelector('.btn-find');
+  
+   
+  
+    const form = document.getElementById('form-field');
+    const input = document.querySelector('.field-find');
+    let city;
+    const api = 'b74cee90d3c64e3e929190415232010';
+  
+    btnFind.addEventListener('click', function(event) {
+      event.preventDefault(); // Предотвращаем отправку формы
+  
+      // Получаем введенный текст из инпута
+      city = input.value.trim();
+      const url = `http://api.weatherapi.com/v1/current.json?key=${api}&q=${city}&aqi=no`;
+      window.location.href = 'index.html';
+      fetch(url)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+  
+          // Создаем верстку блока с погодой
+          const html =`
+            <div class="weather-content">
+              <span class="degrees">${data.current.temp_c}℃</span>
+              <p class="city">Погода в городе ${data.location.name}</p>
+              <a href="find.html" class="change_city">Change city</a>
+            </div>`;
+  
+          // Заменяем блок блоком с новым городом
+          weatherContent.replaceWith(html);
         });
+    });
+  
+    
+
 
 
 

@@ -50,6 +50,15 @@ p {
     line-height: 36px;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    cursor: pointer;
+}
+
 .change_city {
     color: var(--head-txt-color);
     font-family: 'Inter-light';
@@ -122,3 +131,6 @@ p {
     padding-bottom: 40px;
 }
 
+.div-find a {
+    margin: auto;
+}
