@@ -1,4 +1,4 @@
-if ("geolocation" in navigator) {
+
     navigator.geolocation.getCurrentPosition(function(position) {
         // Координаты пользователя доступны в объекте `position`
         let userLocation = {
@@ -36,8 +36,6 @@ if ("geolocation" in navigator) {
             break;
         }
         });
-  } else {
-    alert("Геолокация не поддерживается браузером");
-  }
+
 
 
