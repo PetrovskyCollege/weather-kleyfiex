@@ -10,15 +10,19 @@
     --white-color: #fff;
 }
 
+body {
+    background: var(--background);
+}
+
 .container {
     margin: 0 auto;
     width: 768px;
     height: 1024px;
-    background: var(--background);
 }
 
-h1 {
+.head-txt a{
     color: var(--head-txt-color);
+    text-decoration: none;
     font-family: 'Inter-light';
     font-size: 28px;
     font-style: normal;
@@ -57,6 +61,19 @@ form {
 
 button {
     cursor: pointer;
+    margin: 0 auto;
+    width: 140px;
+    height: 48px;
+    border-radius: 8px;
+    background: var(--white-color);
+    border: none;
+    color: #4C01E0;
+    font-family: 'Inter-regular';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
+    margin-top: 35px;
 }
 
 .change_city {
@@ -65,9 +82,11 @@ button {
     font-size: 17px;
     font-style: italic;
     font-weight: 400;
+    margin: 0 auto;
     margin-top: 36px;
     line-height: 28px;
     text-decoration-line: underline;
+    width: 100px;
 }
 
 .weather-content {
@@ -76,6 +95,7 @@ button {
     text-align: center;
     display: flex;
     flex-direction: column;
+    height: 190px;
 }
 
 .div-find {
@@ -84,7 +104,7 @@ button {
     width: 326px;
     margin: 0 auto;
     margin-top: 340px;
-    margin-bottom: 305px;
+    margin-bottom: 314px;
 }
 
 .field-find {
@@ -109,21 +129,6 @@ button {
     color: var(--head-txt-color);
 }
 
-.btn-find {
-    margin: 0 auto;
-    width: 140px;
-    height: 48px;
-    border-radius: 8px;
-    background: var(--white-color);
-    border: none;
-    color: #4C01E0;
-    font-family: 'Inter-regular';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 36px;
-    margin-top: 35px;
-}
 
 .head-txt, .footer-txt {
     text-align: center;
@@ -133,4 +138,14 @@ button {
 
 .div-find a {
     margin: auto;
+}
+
+.errorContainer {
+    height: 190px;
+    margin-top: 330px;
+    margin-bottom: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
